@@ -40,10 +40,3 @@ namespace Videothek
     }
 
 }
-
-
-
-// To - Do:
-// - Filme löschen
-// - Filme editieren
-// - alle Klassen gekapselt
