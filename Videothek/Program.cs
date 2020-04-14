@@ -19,12 +19,17 @@ namespace Videothek
                 switch (userInput)
                 {
                     case "1":
-                            _Bib.addMovie();
+                        if (_Bib.addMovie(_UI.AskForMovieTitle()))
+                        {
+                            _UI.MovieAddedMsg();
+                        }
                         break;
                  
                     case "2":
-                            _Bib.showMovieList();
-                       
+                        foreach (var movie in _Bib.MovieList)
+                        {
+                            _UI.MovieListOutput(movie.id, movie.Title);
+                        }
                         break;
                 }
 
@@ -35,3 +40,10 @@ namespace Videothek
     }
 
 }
+
+
+
+// To - Do:
+// - Filme löschen
+// - Filme editieren
+// - alle Klassen gekapselt

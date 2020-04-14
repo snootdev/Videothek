@@ -26,12 +26,13 @@ namespace Videothek
             Console.WriteLine("------------");
         }
 
-        public void ShowMovie(int id, string Title)
+         public void MovieListOutput(int id, string Title)
         {
-            Console.WriteLine("ID: {0}", id);
-            Console.WriteLine("Movietitle: {0}", Title);
-            Console.WriteLine("------------");
-            Console.WriteLine(" ");
+                Console.WriteLine("ID: {0}", id);
+                Console.WriteLine("Movietitle: {0}", Title);
+                Console.WriteLine("------------");
+                Console.WriteLine(" ");           
+
         }
 
     }

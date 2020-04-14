@@ -5,11 +5,10 @@
         public int id;
         public string Title;
 
-        public Movie(string Title, int id)
+        public Movie(int id, string Title)
         {
             this.id = id;
             this.Title = Title;
         }
-
     }
 }
