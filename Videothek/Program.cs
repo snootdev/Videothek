@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
 
 namespace Videothek
 {
@@ -10,7 +7,6 @@ namespace Videothek
         static void Main(string[] args)
         {
             UI _UI = new UI();
-            Movie _Movie = new Movie("", 0);
             Bibliothek _Bib = new Bibliothek();
             var userInput = "";
 
