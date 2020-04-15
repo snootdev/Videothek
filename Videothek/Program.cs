@@ -19,7 +19,7 @@ namespace Videothek
                 switch (userInput)
                 {
                     case "1":
-                        if (_Bib.addMovie(_UI.AskForMovieTitle()))
+                        if (_Bib.addMovie(_UI.userInput_addMovie()))
                         {
                             _UI.MovieAddedMsg();
                         }
@@ -31,10 +31,17 @@ namespace Videothek
                             _UI.MovieListOutput(movie.id, movie.Title);
                         }
                         break;
+
+                    case "3":
+                        if (_Bib.delMovie(_UI.userInput_delMovie()))
+                        {
+                            _UI.MovieDeletedMsg();
+                        }
+                        break;
                 }
 
 
-            } while (userInput != "3");
+            } while (userInput != "4");
         }
 
     }

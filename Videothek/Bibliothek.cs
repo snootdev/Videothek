@@ -14,5 +14,11 @@ namespace Videothek
             return true;
         }
 
+        public bool delMovie(int id)
+        {
+            MovieList.RemoveAt(id - 1);
+            return true;
+        }
+
     }
 }
