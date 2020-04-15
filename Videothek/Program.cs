@@ -27,7 +27,7 @@ namespace Videothek
                  
                     case "2":
                         
-                        foreach (var movie in _Bib.MovieList)
+                        foreach (var movie in _Bib.MovieList())
                         {
                             _UI.MovieListOutput(movie.id, movie.Title);
                         }

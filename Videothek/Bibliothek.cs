@@ -6,16 +6,21 @@ namespace Videothek
 {
     class Bibliothek
     {
-        public List<Movie> MovieList = new List<Movie>();
+        private List<Movie> Bib = new List<Movie>();
+
+        public List<Movie> MovieList()
+        {
+            return Bib;
+        }
 
         public void addMovie(string Title)
         {
-            var lastItem = MovieList.LastOrDefault();
+            var lastItem = Bib.LastOrDefault();
             int id;
 
             if (lastItem != null)
             {
-                id = MovieList.LastOrDefault().id;
+                id = Bib.LastOrDefault().id;
             }else
             {
                 id = 0;
@@ -23,13 +28,13 @@ namespace Videothek
 
             id++;
             
-            MovieList.Add(new Movie(id, Title));
+            Bib.Add(new Movie(id, Title));
 
         }
 
         public void delMovie(int id)
         {
-                MovieList.Remove(MovieList.Where(Movie => Movie.id == id).First());
+                Bib.Remove(Bib.Where(Movie => Movie.id == id).First());
         }
 
     }
