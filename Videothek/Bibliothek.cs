@@ -20,7 +20,7 @@ namespace Videothek
 
             if (lastItem != null)
             {
-                id = Bib.LastOrDefault().id;
+                id = lastItem.id;
             }else
             {
                 id = 0;
