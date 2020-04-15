@@ -19,24 +19,26 @@ namespace Videothek
                 switch (userInput)
                 {
                     case "1":
-                        if (_Bib.addMovie(_UI.userInput_addMovie()))
-                        {
+                        
+                            _Bib.addMovie(_UI.userInput_addMovie());
                             _UI.MovieAddedMsg();
-                        }
+                        
                         break;
                  
                     case "2":
+                        
                         foreach (var movie in _Bib.MovieList)
                         {
                             _UI.MovieListOutput(movie.id, movie.Title);
                         }
+
                         break;
 
                     case "3":
-                        if (_Bib.delMovie(_UI.userInput_delMovie()))
-                        {
+
+                            _Bib.delMovie(_UI.userInput_delMovie());                    
                             _UI.MovieDeletedMsg();
-                        }
+                        
                         break;
                 }
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Videothek
 {
@@ -7,17 +8,28 @@ namespace Videothek
     {
         public List<Movie> MovieList = new List<Movie>();
 
-        public bool addMovie(string Title)
+        public void addMovie(string Title)
         {
-            int id = MovieList.Count() + 1;
+            var lastItem = MovieList.LastOrDefault();
+            int id;
+
+            if (lastItem != null)
+            {
+                id = MovieList.LastOrDefault().id;
+            }else
+            {
+                id = 0;
+            }
+
+            id++;
+            
             MovieList.Add(new Movie(id, Title));
-            return true;
+
         }
 
-        public bool delMovie(int id)
+        public void delMovie(int id)
         {
-            MovieList.RemoveAt(id - 1);
-            return true;
+                MovieList.Remove(MovieList.Where(Movie => Movie.id == id).First());
         }
 
     }
