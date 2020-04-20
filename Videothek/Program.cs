@@ -50,10 +50,22 @@ namespace Videothek
                         _Bib.editMovie(_UI.ui_editMovie_id(), _UI.ui_editMovie_title());
 
                         break;
+
+                    case "5":
+
+                        foreach (var found in _Bib.searchMovie(_UI.ui_searchMovie())) {
+                            _UI.MovieListOutput(found.id, found.Title);
+                        }
+
+
+                        break;
+
                 }
 
 
-            } while (userInput != "5");
+
+
+            } while (userInput != "6");
         }
 
     }

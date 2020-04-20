@@ -24,10 +24,15 @@ namespace Videothek
         {
                 Bib.Remove(Bib.Where(Movie => Movie.id == id).First());
         }
-
         public void editMovie(int id, string newTitle)
         {
                Bib.First(Movie => Movie.id == id).Title = newTitle;
+        }
+
+        public List<Movie> searchMovie(string Search)
+        {
+            List<Movie> Result = new List<Movie>(Bib.FindAll(Movie => Movie.Title.Contains(Search)));
+            return Result;
         }
 
     }

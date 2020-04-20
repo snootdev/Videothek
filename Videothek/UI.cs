@@ -13,7 +13,8 @@ namespace Videothek
             Console.WriteLine("2) Show All Movies");
             Console.WriteLine("3) Delete Movie");
             Console.WriteLine("4) Edit Movietitle per ID");
-            Console.WriteLine("5) Exit");
+            Console.WriteLine("5) Search a Movie");
+            Console.WriteLine("6) Exit");
         }
 
         public string userInput_addMovie()
@@ -61,6 +62,13 @@ namespace Videothek
         public string ui_editMovie_title()
         {
             Console.WriteLine("Whats the new Title of the Movie?");
+            string userInput = Console.ReadLine();
+            return userInput;
+        }
+
+        public string ui_searchMovie()
+        {
+            Console.WriteLine("Whats the Title of the Movie?");
             string userInput = Console.ReadLine();
             return userInput;
         }
