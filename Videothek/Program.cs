@@ -10,8 +10,8 @@ namespace Videothek
             Bibliothek _Bib = new Bibliothek();
             var userInput = "";
 
-            _UI.WelcomeText();
-                        
+            _UI.SayWelcome();
+                
             do
             {
                 userInput = Console.ReadLine();
@@ -19,13 +19,13 @@ namespace Videothek
                 switch (userInput)
                 {
                     case "0":
-                        _UI.WelcomeText();
+                        _UI.SayWelcome();
                         break;
 
                     case "1":
                         
-                            _Bib.addMovie(_UI.userInput_addMovie());
-                            _UI.MovieAddedMsg();
+                            _Bib.AddMovie(_UI.GetAddMovieTitle());
+                            _UI.SayMovieAdded();
                         
                         break;
                  
@@ -33,37 +33,34 @@ namespace Videothek
                         
                         foreach (var movie in _Bib.MovieList())
                         {
-                            _UI.MovieListOutput(movie.id, movie.Title);
+                            _UI.SayMovieList(movie.id, movie.Title);
                         }
 
                         break;
 
                     case "3":
 
-                            _Bib.delMovie(_UI.userInput_delMovie());                    
-                            _UI.MovieDeletedMsg();
+                            _Bib.DelMovie(_UI.GetDelMovieId());                    
+                            _UI.SayMovieDeleted();
                         
                         break;
 
                     case "4":
 
-                        _Bib.editMovie(_UI.ui_editMovie_id(), _UI.ui_editMovie_title());
+                        _Bib.EditMovie(_UI.GetMovieId() , _UI.GetNewMovieTitle());
 
                         break;
 
                     case "5":
 
-                        foreach (var found in _Bib.searchMovie(_UI.ui_searchMovie())) {
-                            _UI.MovieListOutput(found.id, found.Title);
+                        foreach (var found in _Bib.SearchMovie(_UI.SearchMovie())) {
+                            _UI.SayMovieList(found.id, found.Title);
                         }
 
 
                         break;
 
                 }
-
-
-
 
             } while (userInput != "6");
         }

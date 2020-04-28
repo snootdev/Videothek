@@ -14,25 +14,51 @@ namespace Videothek
             return Bib;
         }
 
-        public void addMovie(string Title)
+        public void AddMovie(string Title)
         {
             Bib.Add(new Movie(++id, Title));
 
         }
 
-        public void delMovie(int id)
+        public void DelMovie(int id)
         {
-                Bib.Remove(Bib.Where(Movie => Movie.id == id).First());
+                //Bib.Remove(Bib.Where(Movie => Movie.id == id).First());
+            foreach(var Movie in Bib.ToList())
+            {
+                if(Movie.id == id)
+                {
+                    Bib.Remove(Movie);
+                }
+            }
         }
-        public void editMovie(int id, string newTitle)
+        public void EditMovie(int id, string newTitle)
         {
-               Bib.First(Movie => Movie.id == id).Title = newTitle;
+            //Bib.First(Movie => Movie.id == id).Title = newTitle;
+
+            foreach (var Movie in Bib.ToList())
+            {
+                if (Movie.id == id)
+                {
+                    Movie.Title = newTitle;
+                }
+            }
         }
 
-        public List<Movie> searchMovie(string Search)
+        public List<Movie> SearchMovie(string SearchTerm)
         {
-            List<Movie> Result = new List<Movie>(Bib.FindAll(Movie => Movie.Title.Contains(Search)));
-            return Result;
+            //List<Movie> Results = new List<Movie>(Bib.FindAll(Movie => Movie.Title.Contains(Search)));
+
+            List<Movie> Results = new List<Movie>();
+
+            foreach (var Movie in Bib.ToList())
+            {
+                if (Movie.Title.Contains(SearchTerm))
+                {
+                    Results.Add(Movie);
+                }
+            }
+
+            return Results;
         }
 
     }
